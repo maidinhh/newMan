@@ -12,6 +12,6 @@ jobs:
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
         with:
-          apiKey: 
+          asc: PMAK-67ed0433c84a6f00015b2751-9b7ee838be1c0ea62425effe6c58ef4ead
           collection: newman_test.json
           environment: 5922408-228c7edd-fc15-4f68-9665-a35d7df6945b
