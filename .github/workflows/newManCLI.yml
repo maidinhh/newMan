@@ -18,18 +18,8 @@ jobs:
           npm install -g newman-reporter-htmlextra    
       - name: Checkout
         uses: actions/checkout@v4
-
-      # - name: Install Postman CLI
-        # run: |
-        #   curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-      # - name: Login to Postman CLI
-      #   apiKey: postman login --with-api-key PMAK-67ed0433c84a6f00015b2751-9b7ee838be1c0ea62425effe6c58ef4ead
-      # - name: Run API tests
-      #   run: |
-      #     postman collection run "27932117-7c8d245d-75a4-475c-8963-f4723e0f562e"
       - name: Run API Test
         run: newman run "newman_test.json" -r htmlextra 
-        # --reporter-htmlextra-export htmlreport.html > runreport1.html
       - name: debug
         run: |
           pwd
@@ -40,19 +30,3 @@ jobs:
           name: htmlreport
           path: newman/*
 
-      # - name: Test marketplace action
-      #   uses: PavanMudigonda/html-reporter-github-pages@v1.0
-      #   id: test-report
-      #   with:
-      #     test_results: testResults
-      #     gh_pages: gh-pages
-      #     results_history: results-history
-
-      # - name: Publish Github Pages
-      #   if: ${{ always() }}
-      #   uses: peaceiris/actions-gh-pages@v3.8.0
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_branch: gh-pages
-      #     publish_dir: results-history
-      #     keep_files: true     
