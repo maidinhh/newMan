@@ -27,12 +27,13 @@ jobs:
       #   run: |
       #     postman collection run "27932117-7c8d245d-75a4-475c-8963-f4723e0f562e"
       - name: Run API Test
-        run: newman run "newman_test.json" -r htmlextra --reporter-htmlextra-export htmlreport.html > runreport1.html
-      # - name: Output the results
-      #   uses: actions/upload-pages-artifact@v3
-      #   with:
-      #     name: Reporter
-      #     path: testResults
+        run: newman run "newman_test.json" -r htmlextra 
+        # --reporter-htmlextra-export htmlreport.html > runreport1.html
+      - name: Output the results
+        uses: actions/upload-artifact@v4
+        with:
+          name: htmlreport
+          path: newman/htmlreport.html
 
       # - name: Test marketplace action
       #   uses: PavanMudigonda/html-reporter-github-pages@v1.0
